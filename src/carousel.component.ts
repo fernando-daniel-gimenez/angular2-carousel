@@ -419,9 +419,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit {
     vm.removeClassShowSlides("actual");
     vm.removeClassShowSlides("prev");
     vm.removeClassShowSlides("next");
-    if(actual){
-      actual.className += " actual";
-    }
+    
     for(let x=0;x < this.morePairSlides;x++){
         let prev = vm.carousel.items[currentIndex-(x+1)];
         let next = vm.carousel.items[currentIndex+(x+1)];
@@ -431,6 +429,9 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit {
         if(next){
           next.className += " next";
         }
+    }
+    if(actual){
+      actual.className += " actual";
     }
   }
   private removeClassShowSlides(tagClass : string){
